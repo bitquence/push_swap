@@ -20,16 +20,16 @@
 #define NEGATIVE_SIGN '-'
 #define POSITIVE_SIGN '+'
 
-static bool	char_is_valid_digit(char ch)
+static inline bool	char_is_valid_digit(char ch)
 {
 	return (ch >= '0' && ch <= '9');
 }
 
-static bool	can_shift_and_add_in_int(int num, int radix, int addition)
+static inline bool	can_shift_and_add_in_int(int num, int addend, int radix)
 {
 	int64_t	result;
 
-	result = (num * radix) + addition;
+	result = (num * radix) + addend;
 	return (result > INT_MAX || result < INT_MIN);
 	/*
 	if (addition >= 0)
@@ -39,7 +39,7 @@ static bool	can_shift_and_add_in_int(int num, int radix, int addition)
 	*/
 }
 
-static int	parse_digit(char ch)
+static inline int	parse_digit(char ch)
 {
 	return (ch - '0');
 }
@@ -76,7 +76,7 @@ int	parse_number(const char *number, int *result)
 	}
 	while (char_is_valid_digit(number[i]))
 	{
-		if (!can_shift_and_add_in_int(*result, RADIX, sign * parse_digit(number[i])))
+		if (!can_shift_and_add_in_int(*result, sign * parse_digit(number[i]), RADIX))
 		{
 			errno = ERANGE;
 			return (sign);
