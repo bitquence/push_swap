@@ -30,7 +30,7 @@ static inline bool	can_shift_and_add_in_int(int num, int addend, int radix)
 	int64_t	result;
 
 	result = (num * radix) + addend;
-	return (result > INT_MAX || result < INT_MIN);
+	return (result > INT_MIN && result < INT_MAX);
 	/*
 	if (addition >= 0)
 		return (num <= (INT_MAX - addition) / radix);
