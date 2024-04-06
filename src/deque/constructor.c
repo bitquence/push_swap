@@ -20,10 +20,11 @@ t_deque	*deque_new(size_t cap)
 
 	size_in_bytes = sizeof(t_deque) + (cap * sizeof(t_deque_data));
 	this = malloc(size_in_bytes);
-	*this = (t_deque){
-		.cap = cap,
-		.len = 0,
-		.head = 0,
-	};
+	if (this != NULL)
+		*this = (t_deque){
+			.cap = cap,
+			.len = 0,
+			.head = 0,
+		};
 	return (this);
 }
