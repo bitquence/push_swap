@@ -8,9 +8,11 @@ VPATH := $(SOURCE_DIR)
 INCLUSION_DIRS := -Iinclude
 ifndef RELEASE_MODE
 	DEBUGGER ?= gdb
-	DEBUGGING_FLAGS := -g$(DEBUGGER)
+	ADD_DEBUGGING_INFO := -g$(DEBUGGER)
+else
+	ENABLE_OPTIMIZATIONS := -O3
 endif
-CFLAGS += -Wall -Wextra -Werror -MMD -MP $(DEBUGGING_FLAGS) $(INCLUSION_DIRS)
+CFLAGS += -Wall -Wextra -Werror -MMD -MP $(ENABLE_OPTIMIZATIONS) $(ADD_DEBUGGING_INFO) $(INCLUSION_DIRS)
 #LDFLAGS :=
 #LDLIBS :=
 
@@ -40,7 +42,7 @@ $(BUILD_DIR)/%.o: %.c
 run_tests: $(OBJS)
 	cmake -B ./build/test -S ./test
 	cmake --build ./build/test
-	./build/test/test_runner
+	exec valgrind ./build/test/test_runner
 
 .PHONY: clean fclean re
 clean:
