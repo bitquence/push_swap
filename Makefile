@@ -6,13 +6,18 @@ SOURCE_DIR := ./src
 CC ?= cc
 VPATH := $(SOURCE_DIR)
 INCLUSION_DIRS := -Iinclude
-DEBUGGER ?= gdb
-CFLAGS += -Wall -Wextra -Werror -MMD -MP -g$(DEBUGGER) $(INCLUSION_DIRS)
+ifndef RELEASE_MODE
+	DEBUGGER ?= gdb
+	DEBUGGING_FLAGS := -g$(DEBUGGER)
+endif
+CFLAGS += -Wall -Wextra -Werror -MMD -MP $(DEBUGGING_FLAGS) $(INCLUSION_DIRS)
 #LDFLAGS :=
 #LDLIBS :=
 
 SRCS := push_swap.c
-SRCS += deque/constructor.c deque/destructor.c
+SRCS += deque/constructor.c deque/destructor.c \
+	deque/push.c deque/pop.c deque/get.c deque/rotate.c \
+	deque/properties.c
 SRCS += input/parse_number.c input/string_length.c
 OBJS := $(SRCS:.c=.o)
 DEPS := $(SRCS:.c=.d)

@@ -42,7 +42,7 @@ t_deque	*parse_numbers_from_string_array(char *words[], size_t count)
 			deque_destroy(numbers);
 			return (NULL);
 		}
-		//deque_push_back(numbers, number);
+		deque_push_back(numbers, number);
 		i++;
 	}
 	return (numbers);
