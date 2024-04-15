@@ -20,7 +20,9 @@ add_library(pushswap STATIC
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/destructor.o
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/push.o
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/pop.o
+  ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/rotate.o
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/get.o
+  ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/first_last.o
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/properties.o
 
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/input/parse_number.o
