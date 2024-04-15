@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:10:15 by jamar             #+#    #+#             */
-/*   Updated: 2024/03/25 18:50:22 by jamar            ###   ########.fr       */
+/*   Updated: 2024/04/15 22:44:03 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	push_swap_die(void)
 t_deque	*parse_numbers_from_string_array(char *words[], size_t count)
 {
 	t_deque	*numbers;
-	size_t		i;
+	size_t	i;
 	int		number;
 
 	i = 0;
