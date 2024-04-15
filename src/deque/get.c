@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 19:56:59 by jamar             #+#    #+#             */
-/*   Updated: 2024/04/07 02:57:15 by jamar            ###   ########.fr       */
+/*   Updated: 2024/04/15 21:59:30 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ const t_deque_data	*deque_get(const t_deque *self, size_t index)
 {
 	size_t	physical_index;
 
-	if (index > self->len)
+	if (index >= self->len)
 		return (NULL);
 	physical_index = deque_physical_index(self, index);
 	return (&self->data[physical_index]);
