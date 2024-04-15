@@ -77,7 +77,7 @@ TEST(WordIsValidNumberTest, ValidNumberOutOfRange) {
 		return_value = parse_number((ascii_number), &numeric_result);	\
 		ASSERT_EQ(return_value, 0);										\
 		ASSERT_EQ(numeric_result, expected);							\
-	} while (0);
+	} while (0)
 
 #define ASSERT_DOES_NOT_PARSE_OUT_OF_RANGE_NUMBER(ascii_number, expected_return) \
 	do {																\
@@ -87,7 +87,7 @@ TEST(WordIsValidNumberTest, ValidNumberOutOfRange) {
 		return_value = parse_number((ascii_number), &numeric_result);	\
 		ASSERT_EQ(return_value, expected_return);						\
 		ASSERT_EQ(errno, ERANGE);										\
-	} while (0);
+	} while (0)
 
 TEST(ParseNumberTest, ValidPositiveNumber) {
 	ASSERT_PARSES_NUMBER("1", 1);
