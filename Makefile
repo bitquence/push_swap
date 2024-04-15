@@ -18,7 +18,8 @@ CFLAGS += -Wall -Wextra -Werror -MMD -MP $(ENABLE_OPTIMIZATIONS) $(ADD_DEBUGGING
 
 SRCS := push_swap.c
 SRCS += deque/constructor.c deque/destructor.c \
-	deque/push.c deque/pop.c deque/get.c deque/rotate.c \
+	deque/push.c deque/pop.c deque/rotate.c \
+	deque/get.c deque/first_last.c \
 	deque/properties.c
 SRCS += input/parse_number.c input/string_length.c
 OBJS := $(SRCS:.c=.o)

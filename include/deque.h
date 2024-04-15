@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:27:38 by jamar             #+#    #+#             */
-/*   Updated: 2024/04/15 21:30:57 by jamar            ###   ########.fr       */
+/*   Updated: 2024/04/15 21:37:20 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ bool				deque_is_sorted(const t_deque *self, t_compare_function cmp);
 
 const t_deque_data	*deque_get(const t_deque *self, size_t index);
 t_deque_data		*deque_get_mut(const t_deque *self, size_t index);
+
+const t_deque_data	*deque_first(const t_deque *self);
+const t_deque_data	*deque_last(const t_deque *self);
+
+t_deque_data		*deque_first_mut(const t_deque *self);
+t_deque_data		*deque_last_mut(const t_deque *self);
 
 t_deque_data		deque_pop_back(t_deque *self);
 t_deque_data		deque_pop_front(t_deque *self);
