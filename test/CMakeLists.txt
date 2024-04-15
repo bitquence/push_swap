@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.22)
 
 project(libbit)
 set(CMAKE_CXX_STANDARD 14)
@@ -15,7 +15,7 @@ set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 set(LIBRARY_DIR ..)
-add_library(libpushswap STATIC
+add_library(pushswap STATIC
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/constructor.o
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/destructor.o
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/push.o
@@ -25,7 +25,7 @@ add_library(libpushswap STATIC
 
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/input/parse_number.o
 )
-set_target_properties(libpushswap
+set_target_properties(pushswap
   PROPERTIES
     INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/include"
     LINKER_LANGUAGE "C"
@@ -38,7 +38,7 @@ add_executable(test_runner
 
 target_link_libraries(test_runner
   gtest_main
-  libpushswap
+  pushswap
 )
 
 # Automatic discovery of tests
