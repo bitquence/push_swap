@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:27:38 by jamar             #+#    #+#             */
-/*   Updated: 2024/04/15 21:37:20 by jamar            ###   ########.fr       */
+/*   Updated: 2024/04/15 21:50:28 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ void				deque_make_contiguous(t_deque *self);
 
 void				deque_destroy(t_deque *self);
 
-static inline size_t	deque_physical_index(const t_deque *self, size_t logical_index)
+static inline size_t	deque_physical_index(const t_deque *self, size_t index)
 {
-	return ((self->head + logical_index) % self->cap);
+	return ((self->head + index) % self->cap);
 }
 
 #endif // DEQUE_H
