@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:27:38 by jamar             #+#    #+#             */
-/*   Updated: 2024/04/11 17:26:47 by jamar            ###   ########.fr       */
+/*   Updated: 2024/04/15 21:30:57 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ t_deque_data		deque_pop_front(t_deque *self);
 void				deque_push_back(t_deque *self, t_deque_data data);
 void				deque_push_front(t_deque *self, t_deque_data data);
 
-void				deque_rotate_once_right(t_deque *self);
 void				deque_rotate_once_left(t_deque *self);
+void				deque_rotate_once_right(t_deque *self);
 
 /*
 void				deque_make_contiguous(t_deque *self);

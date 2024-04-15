@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 19:48:35 by jamar             #+#    #+#             */
-/*   Updated: 2024/04/15 15:50:02 by jamar            ###   ########.fr       */
+/*   Updated: 2024/04/15 21:35:18 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	deque_push_front(t_deque *self, t_deque_data data)
 		self->head = size_t_wrapping_sub(self->cap, 1);
 	else
 		self->head -= 1;
-	self->len += 1;
 	self->data[self->head] = data;
+	self->len += 1;
 }
