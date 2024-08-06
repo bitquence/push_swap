@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:27:38 by jamar             #+#    #+#             */
-/*   Updated: 2024/04/15 21:50:28 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/06 13:53:22 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ typedef struct s_deque {
 	size_t			head;
 	t_deque_data	data[];
 }	t_deque;
+
+static inline size_t	deque_len(const t_deque *self)
+{
+	return (self->len);
+}
 
 t_deque				*deque_new(size_t cap);
 

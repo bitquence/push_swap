@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:10:15 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 13:42:08 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/06 13:54:25 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	main(int argc, char *argv[])
 	t_deque	*set_b;
 
 	set_a = parse_arguments_or_die(argc, argv);
-	set_b = deque_new(set_a->len);
+	set_b = deque_new(deque_len(set_a));
 	deque_destroy(set_a);
 	deque_destroy(set_b);
 }
