@@ -26,6 +26,8 @@ add_library(pushswap STATIC
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/deque/properties.o
 
   ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/input/parse_number.o
+
+  ${CMAKE_SOURCE_DIR}/${LIBRARY_DIR}/build/operations/swap.o
 )
 set_target_properties(pushswap
   PROPERTIES
@@ -36,6 +38,7 @@ set_target_properties(pushswap
 add_executable(test_runner
   src/deque.cpp
   src/parse_number.cpp
+  src/operations.cpp
 )
 
 target_link_libraries(test_runner
