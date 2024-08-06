@@ -34,7 +34,7 @@ t_deque	*parse_numbers_from_string_array(char *words[], size_t count)
 
 	i = 0;
 	numbers = deque_new(count);
-	if (!numbers)
+	if (numbers == NULL)
 		return (NULL);
 	while (i < count)
 	{
