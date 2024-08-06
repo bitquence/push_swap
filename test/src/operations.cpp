@@ -20,6 +20,9 @@ protected:
     singleton = deque_new(64);
     ASSERT_NE(singleton, nullptr);
 
+    subject_case = deque_new(6);
+    ASSERT_NE(subject_case, nullptr);
+
     for (int num = 32; num > -32; --num)
       deque_push_back(full, num);
 
@@ -27,6 +30,9 @@ protected:
       deque_push_back(half_full, num);
 
     deque_push_back(singleton, 42);
+
+    for (int i : {2, 1, 3, 6, 5, 8})
+      deque_push_back(subject_case, i);
   }
 
   void TearDown() override {
@@ -34,12 +40,14 @@ protected:
     deque_destroy(half_full);
     deque_destroy(empty);
     deque_destroy(singleton);
+    deque_destroy(subject_case);
   }
 
   t_deque *full;
   t_deque *half_full;
   t_deque *empty;
   t_deque *singleton;
+  t_deque *subject_case;
 };
 
 TEST_F(OperationsTest, CanSwapOnFullDeque) {
@@ -184,4 +192,28 @@ TEST_F(OperationsTest, ReverseRotateSingletonDequeHasNoEffect) {
   EXPECT_EQ(deque_len(singleton), 1);
   EXPECT_EQ(*deque_first(singleton), 42);
   //EXPECT_EQ(*deque_last(singleton), 42);
+}
+
+TEST_F(OperationsTest, SubjectTestCase) {
+  t_set_pair pair = {
+    .set_a = subject_case,
+    .set_b = empty
+  };
+  t_operation solution[] = {
+    OP_SWAP_A,
+    OP_PUSH_B, OP_PUSH_B, OP_PUSH_B,
+    OP_ROTATE_A, OP_ROTATE_B,
+    OP_REVERSE_ROTATE_A, OP_REVERSE_ROTATE_B,
+    OP_SWAP_A,
+    OP_PUSH_A, OP_PUSH_A, OP_PUSH_A
+  };
+  t_compare_function ascending_order = (t_compare_function)[](int a, int b) {
+    return int(a < b);
+  };
+
+  for (t_operation op: solution)
+    apply_operation(pair, op);
+  EXPECT_EQ(deque_len(pair.set_a), 6);
+  EXPECT_TRUE(deque_is_empty(pair.set_b));
+  EXPECT_TRUE(deque_is_sorted(pair.set_b, ascending_order));
 }

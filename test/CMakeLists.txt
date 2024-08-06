@@ -21,6 +21,7 @@ add_library(pushswap STATIC
   ${LIBRARY_DIR}/build/input/parse_number.o
 
   ${LIBRARY_DIR}/build/operations/swap.o
+  ${LIBRARY_DIR}/build/operations/apply.o
 )
 set_target_properties(pushswap
   PROPERTIES
