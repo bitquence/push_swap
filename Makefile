@@ -42,14 +42,14 @@ $(BUILD_DIR)/%.o: %.c
 
 VALGRIND =
 ifneq ($(shell uname), Darwin)
-	VALGRIND += exec valgrind
+	VALGRIND += valgrind
 endif
 
 # ty vincent! https://github.com/vincent-lafouasse/C-sandbox-gtest
 run_tests: $(OBJS)
 	cmake -B ./build/test -S ./test
 	cmake --build ./build/test
-	$(VALGRIND) ./build/test/test_runner
+	exec $(VALGRIND) ./build/test/test_runner
 
 .PHONY: clean fclean re
 clean:
