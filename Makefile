@@ -20,7 +20,7 @@ SRCS := push_swap.c
 SRCS += deque/constructor.c deque/destructor.c \
 	deque/push.c deque/pop.c deque/rotate.c \
 	deque/get.c deque/first_last.c \
-	deque/properties.c
+	deque/properties.c deque/unique.c
 SRCS += input/parse_number.c input/string_length.c
 SRCS += operations/apply.c operations/opcode.c operations/swap.c
 OBJS := $(SRCS:.c=.o)
