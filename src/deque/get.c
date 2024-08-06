@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "deque.h"
-#include <stdio.h>
 
 const t_deque_data	*deque_get(const t_deque *self, size_t index)
 {
