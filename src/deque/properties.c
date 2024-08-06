@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 21:41:22 by jamar             #+#    #+#             */
-/*   Updated: 2024/04/05 21:41:23 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/06 14:34:29 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	deque_is_empty(const t_deque *self)
 
 bool	deque_is_full(const t_deque *self)
 {
-	return (self->len == self->cap);
+	return (self->len >= self->cap);
 }
 
 bool	deque_is_sorted(const t_deque *self, t_compare_function cmp)
