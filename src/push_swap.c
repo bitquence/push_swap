@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:10:15 by jamar             #+#    #+#             */
-/*   Updated: 2024/04/15 22:44:03 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/06 13:41:26 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ t_deque	*parse_arguments_or_die(int argc, char *argv[])
 
 int	main(int argc, char *argv[])
 {
-	t_deque	*stack_a;
-	t_deque	*stack_b;
+	t_deque	*set_a;
+	t_deque	*set_b;
 
-	stack_a = parse_arguments_or_die(argc, argv);
-	stack_b = deque_new(stack_a->len);
-	deque_destroy(stack_a);
-	deque_destroy(stack_b);
+	set_a = parse_arguments_or_die(argc, argv);
+	set_b = deque_new(set_a->len);
+	deque_destroy(set_a);
+	deque_destroy(set_b);
 }
