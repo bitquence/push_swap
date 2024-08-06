@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:15:19 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 17:18:44 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/06 18:01:57 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,23 @@ void	op_rotate(t_deque *deque);
  * [Does nothing if there are only one or no elements.]
  */
 void	op_reverse_rotate(t_deque *deque);
+
+static inline void	op_swap_both(t_deque *lhs, t_deque *rhs)
+{
+	op_swap(lhs);
+	op_swap(rhs);
+}
+
+static inline void	op_rotate_both(t_deque *lhs, t_deque *rhs)
+{
+	op_rotate(lhs);
+	op_rotate(rhs);
+}
+
+static inline void	op_reverse_rotate_both(t_deque *lhs, t_deque *rhs)
+{
+	op_reverse_rotate(lhs);
+	op_reverse_rotate(rhs);
+}
 
 #endif // OPERATIONS_H
