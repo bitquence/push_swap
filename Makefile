@@ -23,6 +23,7 @@ SRCS += deque/constructor.c deque/destructor.c \
 	deque/properties.c deque/unique.c
 SRCS += input/parse_number.c input/string_length.c
 SRCS += operations/apply.c operations/opcode.c operations/swap.c
+SRCS += sort/sort.c
 OBJS := $(SRCS:.c=.o)
 DEPS := $(SRCS:.c=.d)
 

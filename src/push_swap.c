@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:10:15 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 13:54:25 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/06 19:54:34 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <errno.h>
 #include "deque.h"
 #include "input.h"
+#include "push_swap.h"
 
 #define ERROR_MESSAGE "Error\n"
 
@@ -50,25 +51,32 @@ t_deque	*parse_numbers_from_string_array(char *words[], size_t count)
 	return (numbers);
 }
 
-t_deque	*parse_arguments_or_die(int argc, char *argv[])
+t_set_pair	init_sets_from_arguments_or_die(int argc, char *argv[])
 {
-	t_deque	*result;
+	t_set_pair	sets;
 
 	if (argc <= 1)
 		push_swap_die();
-	result = parse_numbers_from_string_array(&argv[1], argc - 1);
-	if (result == NULL)
+	sets.set_a = parse_numbers_from_string_array(&argv[1], argc - 1);
+	sets.set_b = deque_new(deque_len(sets.set_a));
+	if (sets.set_a == NULL || sets.set_b == NULL)
+	{
+		destroy_set_pair(sets);
 		push_swap_die();
-	return (result);
+	}
+	return (sets);
 }
 
 int	main(int argc, char *argv[])
 {
-	t_deque	*set_a;
-	t_deque	*set_b;
+	t_set_pair	set_pair;
 
-	set_a = parse_arguments_or_die(argc, argv);
-	set_b = deque_new(deque_len(set_a));
-	deque_destroy(set_a);
-	deque_destroy(set_b);
+	set_pair = init_sets_from_arguments_or_die(argc, argv);
+	if (!deque_all_elements_are_unique(set_pair.set_a))
+	{
+		destroy_set_pair(set_pair);
+		push_swap_die();
+	}
+	sort_and_output_solution(set_pair);
+	destroy_set_pair(set_pair);
 }
