@@ -40,11 +40,16 @@ $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	$(COMPILE.c) $(OUTPUT_OPTION) $<
 
+VALGRIND =
+ifneq ($(shell uname), Darwin)
+	VALGRIND += exec valgrind
+endif
+
 # ty vincent! https://github.com/vincent-lafouasse/C-sandbox-gtest
 run_tests: $(OBJS)
 	cmake -B ./build/test -S ./test
 	cmake --build ./build/test
-	exec valgrind ./build/test/test_runner
+	$(VALGRIND) ./build/test/test_runner
 
 .PHONY: clean fclean re
 clean:
