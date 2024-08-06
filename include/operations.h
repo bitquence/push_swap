@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:15:19 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 18:01:57 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/06 19:39:24 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	apply_operation(t_set_pair set_pair, t_operation operation);
 void	op_swap(t_deque *deque);
 
 /**
- * Take the first element at the top of `lhs` and put it at the top of `rhs`.
+ * Take the first element at the top of `a` and put it at the top of `b`.
  *
- * Does nothing if `lhs` is empty.
+ * Does nothing if `a` is empty.
  */
-void	op_push(t_deque *lhs, t_deque *rhs);
+void	op_push(t_deque *a, t_deque *b);
 
 /**
  * Shift up all elements of stack `deque` by 1, meaning the first element
@@ -68,22 +68,22 @@ void	op_rotate(t_deque *deque);
  */
 void	op_reverse_rotate(t_deque *deque);
 
-static inline void	op_swap_both(t_deque *lhs, t_deque *rhs)
+static inline void	op_swap_both(t_deque *a, t_deque *b)
 {
-	op_swap(lhs);
-	op_swap(rhs);
+	op_swap(a);
+	op_swap(b);
 }
 
-static inline void	op_rotate_both(t_deque *lhs, t_deque *rhs)
+static inline void	op_rotate_both(t_deque *a, t_deque *b)
 {
-	op_rotate(lhs);
-	op_rotate(rhs);
+	op_rotate(a);
+	op_rotate(b);
 }
 
-static inline void	op_reverse_rotate_both(t_deque *lhs, t_deque *rhs)
+static inline void	op_reverse_rotate_both(t_deque *a, t_deque *b)
 {
-	op_reverse_rotate(lhs);
-	op_reverse_rotate(rhs);
+	op_reverse_rotate(a);
+	op_reverse_rotate(b);
 }
 
 #endif // OPERATIONS_H
