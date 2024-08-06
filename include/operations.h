@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:15:19 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 19:39:24 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/06 19:53:38 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ typedef struct s_set_pair {
 	t_deque	*set_a;
 	t_deque	*set_b;
 }	t_set_pair;
+
+static inline void	destroy_set_pair(t_set_pair pair)
+{
+	deque_destroy(pair.set_a);
+	deque_destroy(pair.set_b);
+}
 
 void	apply_operation(t_set_pair set_pair, t_operation operation);
 
