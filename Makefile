@@ -41,7 +41,7 @@ $(BUILD_DIR)/%.o: %.c
 	$(COMPILE.c) $(OUTPUT_OPTION) $<
 
 VALGRIND =
-ifneq ($(shell uname), Darwin)
+ifneq (, $(shell which valgrind))
 	VALGRIND += valgrind
 endif
 
