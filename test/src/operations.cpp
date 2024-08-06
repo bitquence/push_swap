@@ -45,7 +45,7 @@ protected:
 TEST_F(OperationsTest, CanSwapOnFullDeque) {
   op_swap(full);
 
-  EXPECT_EQ(deque_len(full), 64);
+  EXPECT_TRUE(deque_is_full(full));
   ASSERT_EQ(*deque_first(full), 31);
   ASSERT_EQ(*deque_get(full, 1), 32);
 }
@@ -61,7 +61,7 @@ TEST_F(OperationsTest, CanSwapOnHalfFullDeque) {
 TEST_F(OperationsTest, SwapEmptyDequeHasNoEffect) {
   op_swap(empty);
 
-  EXPECT_EQ(deque_len(empty), 0);
+  EXPECT_TRUE(deque_is_empty(empty));
 }
 
 TEST_F(OperationsTest, SwapSingletonDequeHasNoEffect) {
@@ -92,7 +92,7 @@ TEST_F(OperationsTest, CanPushIntoHalfFullDeque) {
 TEST_F(OperationsTest, CanPushOutOfSingletonDeque) {
   op_push(singleton, half_full);
 
-  ASSERT_EQ(deque_len(singleton), 0);
+  ASSERT_TRUE(deque_is_empty(singleton));
   ASSERT_EQ(deque_len(half_full), 33);
   ASSERT_EQ(deque_first(singleton), nullptr);
   ASSERT_EQ(*deque_first(half_full), 42);
@@ -101,7 +101,7 @@ TEST_F(OperationsTest, CanPushOutOfSingletonDeque) {
 TEST_F(OperationsTest, PushOutOfEmptyDequeHasNoEffect) {
   op_push(empty, half_full);
 
-  EXPECT_EQ(deque_len(empty), 0);
+  EXPECT_TRUE(deque_is_empty(empty));
   ASSERT_EQ(deque_len(half_full), 32);
   //ASSERT_EQ(deque_first(empty), nullptr);
   ASSERT_EQ(*deque_first(half_full), 32);
@@ -121,7 +121,7 @@ TEST_F(OperationsTest, PushOutAndIntoSameDequeHasNoEffect) {
 TEST_F(OperationsTest, CanRotateFullDeque) {
   op_rotate(full);
 
-  EXPECT_EQ(deque_len(full), 64);
+  EXPECT_TRUE(deque_is_full(full));
   ASSERT_EQ(*deque_first(full), 31);
   EXPECT_EQ(*deque_get(full, 62), -31);
   ASSERT_EQ(*deque_last(full), 32);
@@ -139,7 +139,7 @@ TEST_F(OperationsTest, CanRotateHalfFullDeque) {
 TEST_F(OperationsTest, RotateEmptyDequeHasNoEffect) {
   op_rotate(empty);
 
-  EXPECT_EQ(deque_len(empty), 0);
+  EXPECT_TRUE(deque_is_empty(empty));
   //EXPECT_EQ(deque_first(empty), nullptr);
   //EXPECT_EQ(deque_last(empty), nullptr);
 }
@@ -155,7 +155,7 @@ TEST_F(OperationsTest, RotateSingletonDequeHasNoEffect) {
 TEST_F(OperationsTest, CanReverseRotateFullDeque) {
   op_reverse_rotate(full);
 
-  EXPECT_EQ(deque_len(full), 64);
+  EXPECT_TRUE(deque_is_full(full));
   ASSERT_EQ(*deque_first(full), -31);
   EXPECT_EQ(*deque_get(full, 1), 32);
   ASSERT_EQ(*deque_last(full), -30);
@@ -173,7 +173,7 @@ TEST_F(OperationsTest, CanReverseRotateHalfFullDeque) {
 TEST_F(OperationsTest, ReverseRotateEmptyDequeHasNoEffect) {
   op_reverse_rotate(empty);
 
-  EXPECT_EQ(deque_len(empty), 0);
+  EXPECT_TRUE(deque_is_empty(empty));
   //EXPECT_EQ(deque_first(empty), nullptr);
   //EXPECT_EQ(deque_last(empty), nullptr);
 }
