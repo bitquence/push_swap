@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:10:15 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 13:41:26 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/06 13:42:08 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ t_deque	*parse_numbers_from_string_array(char *words[], size_t count)
 
 	i = 0;
 	numbers = deque_new(count);
+	if (!numbers)
+		return (NULL);
 	while (i < count)
 	{
 		if (!word_is_valid_number(words[i]) || \
