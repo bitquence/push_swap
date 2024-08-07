@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   opcode.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/06 18:59:08 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 19:46:48 by jamar            ###   ########.fr       */
+/*   Created: 2024/08/06 13:46:38 by jamar             #+#    #+#             */
+/*   Updated: 2024/08/07 15:50:10 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "problem.h"
 
-void	sort_and_output_solution(t_set_pair set_pair)
+const char	*operation_code_of(t_operation operation)
 {
-	(void)set_pair;
-	printf("pa\n");
+	const char	*opcodes[] = {
+		"sa", "sb", "ss",
+		"pa", "pb",
+		"ra", "rb", "rr",
+		"rra", "rrb", "rrr"
+	};
+
+	return (opcodes[operation]);
 }

@@ -193,27 +193,3 @@ TEST_F(OperationsTest, ReverseRotateSingletonDequeHasNoEffect) {
   EXPECT_EQ(*deque_first(singleton), 42);
   //EXPECT_EQ(*deque_last(singleton), 42);
 }
-
-TEST_F(OperationsTest, SubjectTestCase) {
-  t_set_pair pair = {
-    .set_a = subject_case,
-    .set_b = empty
-  };
-  t_operation solution[] = {
-    OP_SWAP_A,
-    OP_PUSH_B, OP_PUSH_B, OP_PUSH_B,
-    OP_ROTATE_A, OP_ROTATE_B,
-    OP_REVERSE_ROTATE_A, OP_REVERSE_ROTATE_B,
-    OP_SWAP_A,
-    OP_PUSH_A, OP_PUSH_A, OP_PUSH_A
-  };
-  t_compare_function ascending_order = (t_compare_function)[](int a, int b) {
-    return int(a < b);
-  };
-
-  for (t_operation op: solution)
-    apply_operation(pair, op);
-  EXPECT_EQ(deque_len(pair.set_a), 6);
-  EXPECT_TRUE(deque_is_empty(pair.set_b));
-  EXPECT_TRUE(deque_is_sorted(pair.set_b, ascending_order));
-}

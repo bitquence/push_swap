@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:10:15 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 19:54:34 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 15:50:30 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <errno.h>
 #include "deque.h"
 #include "input.h"
-#include "push_swap.h"
+#include "problem.h"
 
 #define ERROR_MESSAGE "Error\n"
 

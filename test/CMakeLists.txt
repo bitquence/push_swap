@@ -20,8 +20,9 @@ add_library(pushswap STATIC
 
   ${LIBRARY_DIR}/build/input/parse_number.o
 
-  ${LIBRARY_DIR}/build/operations/swap.o
-  ${LIBRARY_DIR}/build/operations/apply.o
+  ${LIBRARY_DIR}/build/operations.o
+
+  ${LIBRARY_DIR}/build/problem/apply.o
 )
 set_target_properties(pushswap
   PROPERTIES
@@ -34,6 +35,7 @@ add_executable(test_runner
   src/deque.cpp
   src/parse_number.cpp
   src/operations.cpp
+  src/problem.cpp
 )
 
 target_link_libraries(test_runner

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   problem.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 20:25:32 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 15:35:25 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 15:49:16 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PROBLEM_H
+# define PROBLEM_H
 
 # include "deque.h"
 
@@ -45,4 +45,4 @@ static inline void	destroy_set_pair(t_set_pair pair)
 void	apply_operation(t_set_pair set_pair, t_operation operation);
 void	sort_and_output_solution(t_set_pair set_pair);
 
-#endif // PUSH_SWAP_H
+#endif // PROBLEM_H
