@@ -23,6 +23,12 @@ protected:
     alphabet = deque_new(64);
     ASSERT_NE(alphabet, nullptr);
 
+    non_unique = deque_new(64);
+    ASSERT_NE(full, nullptr);
+
+    all_equal = deque_new(64);
+    ASSERT_NE(alphabet, nullptr);
+
     for (int num = 1; num <= 42; num++)
       deque_push_back(contiguous, num);
 
@@ -33,6 +39,13 @@ protected:
       deque_push_back(alphabet, ch);
     for (char ch = 'M'; ch >= 'A'; ch--)
       deque_push_front(alphabet, ch);
+
+    for (int i = 0; i < 63; i++)
+      deque_push_back(non_unique, i);
+    deque_push_back(non_unique, 63);
+
+    for (int i = 0; i < 64; i++)
+      deque_push_front(all_equal, 42);
   }
 
   void TearDown() override {
@@ -41,6 +54,8 @@ protected:
     deque_destroy(contiguous);
     deque_destroy(full);
     deque_destroy(alphabet);
+    deque_destroy(non_unique);
+    deque_destroy(all_equal);
   }
 
   t_deque *no_capacity;
@@ -48,6 +63,8 @@ protected:
   t_deque *contiguous;
   t_deque *full;
   t_deque *alphabet;
+  t_deque *non_unique;
+  t_deque *all_equal;
 };
 
 TEST_F(DequeTest, LengthMatches) {
@@ -289,4 +306,16 @@ TEST_F(DequeTest, CanPopFrontAndPushIntoAgain) {
   deque_push_front(alphabet, element);
   EXPECT_EQ((char)*deque_get(alphabet, 0), 'A');
   EXPECT_EQ(alphabet->len, 26);
+}
+
+TEST_F(DequeTest, AllElementsAreUnique) {
+  ASSERT_TRUE(deque_all_elements_are_unique(no_capacity));
+  ASSERT_TRUE(deque_all_elements_are_unique(empty));
+  ASSERT_TRUE(deque_all_elements_are_unique(alphabet));
+  ASSERT_TRUE(deque_all_elements_are_unique(contiguous));
+  ASSERT_TRUE(deque_all_elements_are_unique(full));
+}
+
+TEST_F(DequeTest, NotAllElementsAreUnique) {
+  ASSERT_FALSE(deque_all_elements_are_unique(all_equal));
 }
