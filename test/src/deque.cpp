@@ -292,6 +292,21 @@ TEST_F(DequeTest, CanRotateNonContiguousDequeOnceToTheRight) {
   ASSERT_EQ(alphabet->len, 26);
 }
 
+TEST_F(DequeTest, RotateLeftThenRightHasNoEffect) {
+  deque_rotate_once_left(alphabet);
+  deque_rotate_once_right(alphabet);
+
+  EXPECT_EQ((char)*deque_get(alphabet, 0), 'A');
+  EXPECT_EQ((char)*deque_get(alphabet, 1), 'B');
+  EXPECT_EQ((char)*deque_get(alphabet, 2), 'C');
+
+  EXPECT_EQ((char)*deque_get(alphabet, 23), 'X');
+  EXPECT_EQ((char)*deque_get(alphabet, 24), 'Y');
+  EXPECT_EQ((char)*deque_get(alphabet, 25), 'Z');
+
+  ASSERT_EQ(alphabet->len, 26);
+}
+
 TEST_F(DequeTest, CanPopBackAndPushIntoAgain) {
   t_deque_data element = deque_pop_back(alphabet);
 
