@@ -6,35 +6,35 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:46:27 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 15:49:55 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 18:21:24 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 #include "problem.h"
 
-void	apply_operation(t_set_pair set_pair, t_operation operation)
+void	apply_operation(t_state state, t_operation operation)
 {
 	if (operation == OP_SWAP_A)
-		op_swap(set_pair.set_a);
+		op_swap(state.stack_a);
 	if (operation == OP_SWAP_B)
-		op_swap(set_pair.set_b);
+		op_swap(state.stack_b);
 	if (operation == OP_SWAP_BOTH)
-		op_swap_both(set_pair.set_a, set_pair.set_b);
+		op_swap_both(state.stack_a, state.stack_b);
 	if (operation == OP_PUSH_A)
-		op_push(set_pair.set_b, set_pair.set_a);
+		op_push(state.stack_b, state.stack_a);
 	if (operation == OP_PUSH_B)
-		op_push(set_pair.set_a, set_pair.set_b);
+		op_push(state.stack_a, state.stack_b);
 	if (operation == OP_ROTATE_A)
-		op_rotate(set_pair.set_a);
+		op_rotate(state.stack_a);
 	if (operation == OP_ROTATE_B)
-		op_rotate(set_pair.set_b);
+		op_rotate(state.stack_b);
 	if (operation == OP_ROTATE_BOTH)
-		op_rotate_both(set_pair.set_a, set_pair.set_b);
+		op_rotate_both(state.stack_a, state.stack_b);
 	if (operation == OP_REVERSE_ROTATE_A)
-		op_reverse_rotate(set_pair.set_a);
+		op_reverse_rotate(state.stack_a);
 	if (operation == OP_REVERSE_ROTATE_B)
-		op_reverse_rotate(set_pair.set_b);
+		op_reverse_rotate(state.stack_b);
 	if (operation == OP_REVERSE_ROTATE_BOTH)
-		op_reverse_rotate_both(set_pair.set_a, set_pair.set_b);
+		op_reverse_rotate_both(state.stack_a, state.stack_b);
 }

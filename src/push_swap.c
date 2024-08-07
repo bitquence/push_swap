@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:10:15 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 15:50:30 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 18:18:52 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,32 +51,32 @@ t_deque	*parse_numbers_from_string_array(char *words[], size_t count)
 	return (numbers);
 }
 
-t_set_pair	init_sets_from_arguments_or_die(int argc, char *argv[])
+t_state	init_state_from_arguments_or_die(int argc, char *argv[])
 {
-	t_set_pair	sets;
+	t_state	state;
 
 	if (argc <= 1)
 		push_swap_die();
-	sets.set_a = parse_numbers_from_string_array(&argv[1], argc - 1);
-	sets.set_b = deque_new(deque_len(sets.set_a));
-	if (sets.set_a == NULL || sets.set_b == NULL)
+	state.stack_a = parse_numbers_from_string_array(&argv[1], argc - 1);
+	state.stack_b = deque_new(deque_len(state.stack_a));
+	if (state.stack_a == NULL || state.stack_b == NULL)
 	{
-		destroy_set_pair(sets);
+		destroy_state(state);
 		push_swap_die();
 	}
-	return (sets);
+	return (state);
 }
 
 int	main(int argc, char *argv[])
 {
-	t_set_pair	set_pair;
+	t_state	state;
 
-	set_pair = init_sets_from_arguments_or_die(argc, argv);
-	if (!deque_all_elements_are_unique(set_pair.set_a))
+	state = init_state_from_arguments_or_die(argc, argv);
+	if (!deque_all_elements_are_unique(state.stack_a))
 	{
-		destroy_set_pair(set_pair);
+		destroy_state(state);
 		push_swap_die();
 	}
-	sort_and_output_solution(set_pair);
-	destroy_set_pair(set_pair);
+	sort_and_output_solution(state);
+	destroy_state(state);
 }

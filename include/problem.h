@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 20:25:32 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 15:49:16 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 18:13:37 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ typedef enum e_operation {
 
 const char *operation_code_of(t_operation operation);
 
-typedef struct s_set_pair {
-	t_deque	*set_a;
-	t_deque	*set_b;
-}	t_set_pair;
+typedef struct s_state {
+	t_deque	*stack_a;
+	t_deque	*stack_b;
+}	t_state;
 
-static inline void	destroy_set_pair(t_set_pair pair)
+static inline void	destroy_state(t_state state)
 {
-	deque_destroy(pair.set_a);
-	deque_destroy(pair.set_b);
+	deque_destroy(state.stack_a);
+	deque_destroy(state.stack_b);
 }
 
-void	apply_operation(t_set_pair set_pair, t_operation operation);
-void	sort_and_output_solution(t_set_pair set_pair);
+void	apply_operation(t_state state, t_operation operation);
+void	sort_and_output_solution(t_state state);
 
 #endif // PROBLEM_H

@@ -28,9 +28,9 @@ protected:
 };
 
 TEST_F(ProblemTest, SubjectTestCase) {
-  t_set_pair pair = {
-    .set_a = subject_case,
-    .set_b = stack_b
+  t_state state = {
+    .stack_a = subject_case,
+    .stack_b = stack_b
   };
   t_operation solution[] = {
     OP_SWAP_A,
@@ -45,8 +45,8 @@ TEST_F(ProblemTest, SubjectTestCase) {
   };
 
   for (t_operation op: solution)
-    apply_operation(pair, op);
-  EXPECT_EQ(deque_len(pair.set_a), 6);
-  EXPECT_TRUE(deque_is_empty(pair.set_b));
-  EXPECT_TRUE(deque_is_sorted(pair.set_b, ascending_order));
+    apply_operation(state, op);
+  EXPECT_EQ(deque_len(state.stack_a), 6);
+  EXPECT_TRUE(deque_is_empty(state.stack_b));
+  EXPECT_TRUE(deque_is_sorted(state.stack_b, ascending_order));
 }

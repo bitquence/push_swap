@@ -6,15 +6,15 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 18:59:08 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 15:50:20 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 18:21:02 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "problem.h"
 #include <stdio.h>
 
-void	sort_and_output_solution(t_set_pair set_pair)
+void	sort_and_output_solution(t_state state)
 {
-	(void)set_pair;
+	(void)state;
 	printf("pa\n");
 }
