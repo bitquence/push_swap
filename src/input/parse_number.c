@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 03:25:42 by jamar             #+#    #+#             */
-/*   Updated: 2024/03/31 03:25:44 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:13:18 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ bool	word_is_valid_number(const char *word)
 	if (word[i] == NEGATIVE_SIGN || word[i] == POSITIVE_SIGN)
 		i++;
 	if (word[i] == '\0')
+		return (false);
+	if (word[i] == '0' && word[i + 1] != '\0')
 		return (false);
 	while (char_is_valid_digit(word[i]))
 		i++;
