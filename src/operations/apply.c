@@ -6,11 +6,12 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:46:27 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 18:03:12 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 15:35:17 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
+#include "push_swap.h"
 
 void	apply_operation(t_set_pair set_pair, t_operation operation)
 {
