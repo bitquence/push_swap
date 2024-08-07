@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 19:56:13 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 19:57:29 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 19:11:09 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ bool	deque_all_elements_are_unique(const t_deque *deque)
 	size_t	j;
 
 	i = 0;
+	if (deque_len(deque) <= 1)
+		return (true);
 	while (i < deque_len(deque) - 1)
 	{
 		j = i + 1;
