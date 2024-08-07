@@ -49,7 +49,7 @@ endif
 
 # ty vincent! https://github.com/vincent-lafouasse/C-sandbox-gtest
 run_tests: $(OBJS)
-	cmake -B ./build/test -S ./test
+	cmake -DCMAKE_BUILD_TYPE=DEBUG -B ./build/test -S ./test
 	cmake --build ./build/test
 	exec $(VALGRIND) ./build/test/test_runner
 
