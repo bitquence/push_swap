@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:15:19 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 15:33:46 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:02:43 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 void	op_swap(t_deque *deque);
 
 /**
- * Take the first element at the top of `a` and put it at the top of `b`.
+ * Take the first element at the top of `from` and put it at the top of `into`.
  *
  * Does nothing if `a` is empty.
  */
-void	op_push(t_deque *a, t_deque *b);
+void	op_push(t_deque *from, t_deque *into);
 
 /**
  * Shift up all elements of stack `deque` by 1, meaning the first element

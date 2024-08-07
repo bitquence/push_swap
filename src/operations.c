@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:48:12 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 15:42:40 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:02:24 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ void	op_swap(t_deque *deque)
 	deque_push_front(deque, second);
 }
 
-void	op_push(t_deque *a, t_deque *b)
+void	op_push(t_deque *from, t_deque *into)
 {
-	t_deque_data	a_first;
+	t_deque_data	from_first;
 
-	if (deque_len(a) == 0)
+	if (deque_len(from) == 0)
 		return;
-	assert (!deque_is_full(b)); // forbidden function!
-	a_first = deque_pop_front(a);
-	deque_push_front(b, a_first);
+	assert (!deque_is_full(into)); // forbidden function!
+	from_first = deque_pop_front(from);
+	deque_push_front(into, from_first);
 }
 
 void	op_rotate(t_deque *deque)
