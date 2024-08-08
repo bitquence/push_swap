@@ -53,24 +53,27 @@ t_deque	*parse_numbers_from_string_array(char *words[], size_t count)
 
 t_state	init_state_from_arguments_or_die(int argc, char *argv[])
 {
-	t_state	state;
+	t_deque	*stack_a;
+	t_deque	*stack_b;
 
-	if (argc <= 1)
+	stack_a = parse_numbers_from_string_array(&argv[1], argc - 1);
+	if (stack_a == NULL)
 		push_swap_die();
-	state.stack_a = parse_numbers_from_string_array(&argv[1], argc - 1);
-	state.stack_b = deque_new(deque_len(state.stack_a));
-	if (state.stack_a == NULL || state.stack_b == NULL)
+	stack_b = deque_new(deque_len(stack_a));
+	if (stack_b == NULL)
 	{
-		destroy_state(state);
+		deque_destroy(stack_a);
 		push_swap_die();
 	}
-	return (state);
+	return ((t_state){stack_a, stack_b});
 }
 
 int	main(int argc, char *argv[])
 {
 	t_state	state;
 
+	if (argc <= 1)
+		push_swap_die();
 	state = init_state_from_arguments_or_die(argc, argv);
 	if (!deque_all_elements_are_unique(state.stack_a))
 	{
