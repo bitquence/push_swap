@@ -35,3 +35,19 @@ bool	deque_all_elements_are_unique(const t_deque *deque)
 	}
 	return (true);
 }
+
+bool	deque_all_elements_are_unique_sorted(const t_deque *deque)
+{
+	size_t	i;
+
+	i = 0;
+	if (deque_len(deque) <= 1)
+		return (true);
+	while (i < deque_len(deque) - 1)
+	{
+		if (*deque_get(deque, i) == *deque_get(deque, i + 1))
+			return (false);
+		i++;
+	}
+	return (true);
+}

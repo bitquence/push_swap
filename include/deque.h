@@ -36,6 +36,7 @@ t_deque				*deque_new(size_t cap);
 bool				deque_is_empty(const t_deque *self);
 bool				deque_is_full(const t_deque *self);
 bool				deque_all_elements_are_unique(const t_deque *deque);
+bool				deque_all_elements_are_unique_sorted(const t_deque *deque);
 bool				deque_is_sorted(const t_deque *self, t_compare_function cmp);
 
 const t_deque_data	*deque_get(const t_deque *self, size_t index);
