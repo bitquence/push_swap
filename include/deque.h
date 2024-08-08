@@ -56,6 +56,8 @@ void				deque_push_front(t_deque *self, t_deque_data data);
 void				deque_rotate_once_left(t_deque *self);
 void				deque_rotate_once_right(t_deque *self);
 
+bool				deque_is_contiguous(const t_deque *self);
+
 /*
 void				deque_make_contiguous(t_deque *self);
 */

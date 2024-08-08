@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "deque.h"
+#include <stdbool.h>
+#include <stddef.h>
 
 bool	deque_is_empty(const t_deque *self)
 {
@@ -20,6 +22,11 @@ bool	deque_is_empty(const t_deque *self)
 bool	deque_is_full(const t_deque *self)
 {
 	return (self->len >= self->cap);
+}
+
+bool	deque_is_contiguous(const t_deque *self)
+{
+	return (self->head == 0);
 }
 
 bool	deque_is_sorted(const t_deque *self, t_compare_function cmp)

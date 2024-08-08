@@ -334,3 +334,11 @@ TEST_F(DequeTest, AllElementsAreUnique) {
 TEST_F(DequeTest, NotAllElementsAreUnique) {
   ASSERT_FALSE(deque_all_elements_are_unique(all_equal));
 }
+
+TEST_F(DequeTest, IsContiguous) {
+  ASSERT_TRUE(deque_is_contiguous(contiguous));
+}
+
+TEST_F(DequeTest, IsNotContiguous) {
+  ASSERT_FALSE(deque_is_contiguous(alphabet));
+}
