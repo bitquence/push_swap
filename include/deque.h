@@ -67,6 +67,8 @@ void				deque_make_contiguous(t_deque *self);
 void				deque_sort_unstable(t_deque *self);
 t_deque				*deque_sorted_unstable(const t_deque *self);
 
+void				deque_make_ranked(t_deque *self, const t_deque *self_sorted);
+
 t_deque				*deque_clone(const t_deque *self);
 void				deque_destroy(t_deque *self);
 
