@@ -351,3 +351,23 @@ TEST_F(DequeTest, NonEqual) {
   ASSERT_FALSE(deque_eq(contiguous, alphabet));
   ASSERT_FALSE(deque_eq(non_unique, all_equal));
 }
+
+TEST_F(DequeTest, Clone) {
+  t_deque *clone;
+
+  clone = deque_clone(alphabet);
+  //EXPECT_CALL(malloc);
+  EXPECT_NE(clone, nullptr);
+  ASSERT_NE(clone, alphabet);
+  ASSERT_TRUE(deque_eq(clone, alphabet));
+}
+
+TEST_F(DequeTest, CloneNoCapacityDeque) {
+  t_deque *clone;
+
+  clone = deque_clone(no_capacity);
+  //EXPECT_CALL(malloc);
+  EXPECT_NE(clone, nullptr);
+  ASSERT_NE(clone, no_capacity);
+  ASSERT_TRUE(deque_eq(clone, no_capacity));
+}

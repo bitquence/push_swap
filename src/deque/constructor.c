@@ -28,3 +28,18 @@ t_deque	*deque_new(size_t cap)
 		};
 	return (this);
 }
+
+t_deque	*deque_clone(const t_deque *self)
+{
+	t_deque	*new;
+	size_t	i;
+
+	new = deque_new(self->cap);
+	i = 0;
+	while (i < deque_len(self))
+	{
+		deque_push_back(new, *deque_get(self, i));
+		i++;
+	}
+	return (new);
+}

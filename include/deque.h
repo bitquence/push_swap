@@ -65,6 +65,7 @@ bool				deque_eq(const t_deque *a, const t_deque *b);
 void				deque_make_contiguous(t_deque *self);
 */
 
+t_deque				*deque_clone(const t_deque *self);
 void				deque_destroy(t_deque *self);
 
 static inline size_t	deque_physical_index(const t_deque *self, size_t index)
