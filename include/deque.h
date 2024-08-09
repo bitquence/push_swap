@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:27:38 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/06 19:57:40 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/09 14:59:13 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 typedef int	t_deque_data;
 typedef int	(*t_compare_function)(t_deque_data, t_deque_data);
+typedef int	(*t_predicate)(t_deque_data);
 
 typedef struct s_deque {
 	size_t			cap;
@@ -38,6 +39,7 @@ bool				deque_is_full(const t_deque *self);
 bool				deque_all_elements_are_unique(const t_deque *deque);
 bool				deque_all_elements_are_unique_sorted(const t_deque *deque);
 bool				deque_is_sorted(const t_deque *self, t_compare_function cmp);
+bool				deque_all(const t_deque *self, t_predicate pred);
 
 const t_deque_data	*deque_get(const t_deque *self, size_t index);
 t_deque_data		*deque_get_mut(t_deque *self, size_t index);
