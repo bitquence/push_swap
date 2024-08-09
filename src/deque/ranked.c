@@ -36,8 +36,8 @@ void	deque_make_ranked(t_deque *self, const t_deque *self_sorted)
 	i = 0;
 	while (i < deque_len(self))
 	{
-		target_element = *deque_get_mut(self, i);
-		*target_element = deque_index_of(self_sorted, *target_element);
+		target_element = deque_get_mut(self, i);
+		*target_element = index_of_sorted(self_sorted, *target_element);
 		i++;
 	}
 }
