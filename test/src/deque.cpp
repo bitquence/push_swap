@@ -29,6 +29,9 @@ protected:
     all_equal = deque_new(64);
     ASSERT_NE(alphabet, nullptr);
 
+    shuffled = deque_new(64);
+    ASSERT_NE(alphabet, nullptr);
+
     for (int num = 1; num <= 42; num++)
       deque_push_back(contiguous, num);
 
@@ -46,6 +49,9 @@ protected:
 
     for (int i = 0; i < 64; i++)
       deque_push_front(all_equal, 42);
+
+    for (int d:{22,18,15,13,17,10,8,9,6,26,14,2,25,23,4,20,12,19,0,21,30,24,28,16,1,31,27,7,5,11,3,29})
+      deque_push_back(shuffled, d);
   }
 
   void TearDown() override {
@@ -56,6 +62,7 @@ protected:
     deque_destroy(alphabet);
     deque_destroy(non_unique);
     deque_destroy(all_equal);
+    deque_destroy(shuffled);
   }
 
   t_deque *no_capacity;
@@ -65,6 +72,7 @@ protected:
   t_deque *alphabet;
   t_deque *non_unique;
   t_deque *all_equal;
+  t_deque *shuffled;
 };
 
 TEST_F(DequeTest, LengthMatches) {
@@ -374,4 +382,16 @@ TEST_F(DequeTest, CloneNoCapacityDeque) {
   ASSERT_NE(clone, no_capacity);
   ASSERT_TRUE(deque_eq(clone, no_capacity));
   deque_destroy(clone);
+}
+
+TEST_F(DequeTest, DequeUnstableSortOnSortedNonContiguousListHasNoEffect) {
+  deque_sort_unstable(alphabet);
+
+  ASSERT_TRUE(deque_is_sorted(alphabet, ascending_order));
+}
+
+TEST_F(DequeTest, DequeUnstableSort) {
+  deque_sort_unstable(shuffled);
+
+  ASSERT_TRUE(deque_is_sorted(shuffled, ascending_order));
 }
