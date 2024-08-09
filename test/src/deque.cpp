@@ -362,6 +362,7 @@ TEST_F(DequeTest, Clone) {
   EXPECT_NE(clone, nullptr);
   ASSERT_NE(clone, alphabet);
   ASSERT_TRUE(deque_eq(clone, alphabet));
+  deque_destroy(clone);
 }
 
 TEST_F(DequeTest, CloneNoCapacityDeque) {
@@ -372,4 +373,5 @@ TEST_F(DequeTest, CloneNoCapacityDeque) {
   EXPECT_NE(clone, nullptr);
   ASSERT_NE(clone, no_capacity);
   ASSERT_TRUE(deque_eq(clone, no_capacity));
+  deque_destroy(clone);
 }
