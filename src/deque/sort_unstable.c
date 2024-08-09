@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 14:11:55 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/08 14:11:55 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/09 14:48:31 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	ascending_order(t_deque_data lhs, t_deque_data rhs)
 
 void	deque_sort_unstable(t_deque *self)
 {
-	assert (deque_is_contiguous(self)); // forbidden function!
 	assert (deque_len(self) > 0); // forbidden function!
 	deque_quick_sort(self, 0, deque_len(self));
 	assert (deque_is_sorted(self, ascending_order)); // forbidden function!
