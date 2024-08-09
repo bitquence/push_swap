@@ -345,6 +345,8 @@ TEST_F(DequeTest, IsNotContiguous) {
 
 TEST_F(DequeTest, Equal) {
   ASSERT_TRUE(deque_eq(contiguous, full));
+  ASSERT_TRUE(deque_eq(contiguous, contiguous));
+  ASSERT_TRUE(deque_eq(no_capacity, no_capacity));
 }
 
 TEST_F(DequeTest, NonEqual) {
