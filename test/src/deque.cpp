@@ -50,7 +50,7 @@ protected:
     for (int i = 0; i < 64; i++)
       deque_push_front(all_equal, 42);
 
-    for (int d:{22,18,15,13,17,10,8,9,6,26,14,2,25,23,4,20,12,19,0,21,30,24,28,16,1,31,27,7,5,11,3,29})
+    for(int d:{430,-486,-82,-230,-377,-321,-91,202,-489,375,62,-492,-332,-488,-35,-242,-284,-271,-346,-54,276,204,-434,-30,-439,233,429,179,-96,47,-151,40})
       deque_push_back(shuffled, d);
   }
 
@@ -394,4 +394,33 @@ TEST_F(DequeTest, DequeUnstableSort) {
   deque_sort_unstable(shuffled);
 
   ASSERT_TRUE(deque_is_sorted(shuffled, ascending_order));
+}
+
+TEST_F(DequeTest, MakeDequeRankedOutputIsWithinBounds) {
+  t_deque *shuffled_sorted;
+  t_predicate bound = [](t_deque_data val) {
+    return int(val < 32);
+  };
+
+  shuffled_sorted = deque_sorted_unstable(shuffled);
+  deque_make_ranked(shuffled, shuffled_sorted);
+
+  ASSERT_TRUE(deque_all_elements_are_unique(shuffled));
+  ASSERT_TRUE(deque_all(shuffled, bound));
+
+  deque_destroy(shuffled_sorted);
+}
+
+TEST_F(DequeTest, MakeDequeRankedOutputIsStrictlySeperated) {
+  t_predicate bound = [](t_deque_data val) {
+    return int(val < 26);
+  };
+
+  deque_make_ranked(alphabet, alphabet);
+
+  EXPECT_TRUE(deque_all_elements_are_unique(alphabet));
+  EXPECT_TRUE(deque_all(alphabet, bound));
+
+  for (int i = 0; i < 26; i++)
+    ASSERT_EQ(*deque_get(alphabet, i), i);
 }
