@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:10:15 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 18:18:52 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/09 17:52:55 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ t_state	init_state_from_arguments_or_die(int argc, char *argv[])
 		deque_destroy(sorted_stack_a);
 		push_swap_die();
 	}
+	deque_destroy(sorted_stack_a);
 	return ((t_state){stack_a, stack_b});
 }
 
