@@ -342,3 +342,12 @@ TEST_F(DequeTest, IsContiguous) {
 TEST_F(DequeTest, IsNotContiguous) {
   ASSERT_FALSE(deque_is_contiguous(alphabet));
 }
+
+TEST_F(DequeTest, Equal) {
+  ASSERT_TRUE(deque_eq(contiguous, full));
+}
+
+TEST_F(DequeTest, NonEqual) {
+  ASSERT_FALSE(deque_eq(contiguous, alphabet));
+  ASSERT_FALSE(deque_eq(non_unique, all_equal));
+}

@@ -18,6 +18,7 @@ add_library(pushswap STATIC
   ${LIBRARY_DIR}/build/deque/first_last.o
   ${LIBRARY_DIR}/build/deque/properties.o
   ${LIBRARY_DIR}/build/deque/unique.o
+  ${LIBRARY_DIR}/build/deque/cmp.o
 
   ${LIBRARY_DIR}/build/input/parse_number.o
 
