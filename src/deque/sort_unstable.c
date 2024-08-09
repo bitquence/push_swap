@@ -58,7 +58,7 @@ static void deque_quick_sort(t_deque *self, size_t start, size_t end)
 	}
 }
 
-int	ascending_order(t_deque_data lhs, t_deque_data rhs)
+static int	ascending_order(t_deque_data lhs, t_deque_data rhs)
 {
 	return (lhs < rhs);
 }
