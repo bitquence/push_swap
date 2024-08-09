@@ -390,7 +390,7 @@ TEST_F(DequeTest, DequeUnstableSortOnSortedNonContiguousListHasNoEffect) {
   ASSERT_TRUE(deque_is_sorted(alphabet, ascending_order));
 }
 
-TEST_F(DequeTest, DequeUnstableSort) {
+TEST_F(DequeTest, SortDequeUnstably) {
   deque_sort_unstable(shuffled);
 
   ASSERT_TRUE(deque_is_sorted(shuffled, ascending_order));
