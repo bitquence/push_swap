@@ -21,6 +21,7 @@ SRCS += deque/constructor.c deque/destructor.c \
 	deque/push.c deque/pop.c deque/rotate.c \
 	deque/get.c deque/first_last.c \
 	deque/properties.c deque/unique.c \
+	deque/sort_unstable.c \
 	deque/cmp.c
 SRCS += input/parse_number.c input/string_length.c
 SRCS += operations.c
