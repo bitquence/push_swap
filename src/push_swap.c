@@ -54,15 +54,30 @@ t_deque	*parse_numbers_from_string_array(char *words[], size_t count)
 t_state	init_state_from_arguments_or_die(int argc, char *argv[])
 {
 	t_deque	*stack_a;
+	t_deque	*sorted_stack_a;
 	t_deque	*stack_b;
 
 	stack_a = parse_numbers_from_string_array(&argv[1], argc - 1);
 	if (stack_a == NULL)
 		push_swap_die();
+	sorted_stack_a = deque_sorted_unstable(stack_a);
+	if (sorted_stack_a == NULL)
+	{
+		deque_destroy(stack_a);
+		push_swap_die();
+	}
+	if (!deque_all_elements_are_unique_sorted(sorted_stack_a))
+	{
+		deque_destroy(stack_a);
+		deque_destroy(sorted_stack_a);
+		push_swap_die();
+	}
+	deque_make_ranked(stack_a, sorted_stack_a);
 	stack_b = deque_new(deque_len(stack_a));
 	if (stack_b == NULL)
 	{
 		deque_destroy(stack_a);
+		deque_destroy(sorted_stack_a);
 		push_swap_die();
 	}
 	return ((t_state){stack_a, stack_b});
@@ -75,11 +90,6 @@ int	main(int argc, char *argv[])
 	if (argc <= 1)
 		push_swap_die();
 	state = init_state_from_arguments_or_die(argc, argv);
-	if (!deque_all_elements_are_unique(state.stack_a))
-	{
-		destroy_state(state);
-		push_swap_die();
-	}
 	sort_and_output_solution(state);
 	destroy_state(state);
 }
