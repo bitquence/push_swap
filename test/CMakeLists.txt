@@ -27,6 +27,7 @@ add_library(pushswap STATIC
   ${LIBRARY_DIR}/build/operations.o
 
   ${LIBRARY_DIR}/build/problem/apply.o
+  ${LIBRARY_DIR}/build/problem/opcode.o
 )
 set_target_properties(pushswap
   PROPERTIES

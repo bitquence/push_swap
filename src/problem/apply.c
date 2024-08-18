@@ -6,15 +6,38 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:46:27 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 18:21:24 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/13 18:13:22 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 #include "problem.h"
+#include <stddef.h>
+#include <unistd.h>
+
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+static void	register_operation(t_state state, t_operation operation)
+{
+	(void)state;
+	const char	*mnemonic;
+
+	mnemonic = operation_code_of(operation);
+	write(STDOUT_FILENO, mnemonic, ft_strlen(mnemonic));
+	write(STDOUT_FILENO, "\n", 1);
+}
 
 void	apply_operation(t_state state, t_operation operation)
 {
+	register_operation(state, operation);
 	if (operation == OP_SWAP_A)
 		op_swap(state.stack_a);
 	if (operation == OP_SWAP_B)
