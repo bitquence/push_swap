@@ -3,6 +3,7 @@
 
 extern "C" {
 #include "deque.h"
+#include "deque_order.h"
 };
 
 class DequeTest : public testing::Test {
@@ -111,10 +112,6 @@ TEST_F(DequeTest, DequeIsNotFull) {
 
 t_compare_function always_false = [](int a, int b) {
   return int(false);
-};
-
-t_compare_function ascending_order = [](int a, int b) {
-  return int(a < b);
 };
 
 TEST_F(DequeTest, NonContiguousDequeIsSorted) {

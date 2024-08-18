@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 14:11:55 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/09 14:48:31 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/13 18:16:29 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,6 @@ static void deque_quick_sort(t_deque *self, size_t start, size_t end)
 		deque_quick_sort(self, start, pivot_index);
 		deque_quick_sort(self, pivot_index + 1, end);
 	}
-}
-
-static int	ascending_order(t_deque_data lhs, t_deque_data rhs)
-{
-	return (lhs < rhs);
 }
 
 void	deque_sort_unstable(t_deque *self)

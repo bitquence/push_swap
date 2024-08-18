@@ -3,6 +3,7 @@
 extern "C" {
 #include "deque.h"
 #include "problem.h"
+#include "deque_order.h"
 };
 
 class ProblemTest : public testing::Test {
@@ -39,9 +40,6 @@ TEST_F(ProblemTest, SubjectTestCase) {
     OP_REVERSE_ROTATE_A, OP_REVERSE_ROTATE_B,
     OP_SWAP_A,
     OP_PUSH_A, OP_PUSH_A, OP_PUSH_A
-  };
-  t_compare_function ascending_order = (t_compare_function)[](int a, int b) {
-    return int(a < b);
   };
 
   for (t_operation op: solution)
