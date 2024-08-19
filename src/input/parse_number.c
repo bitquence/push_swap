@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 03:25:42 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/07 17:13:18 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/19 22:01:09 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdint.h> // int64_t
 #include <stdbool.h> // bool, true, false
 #include <limits.h> // INT_MAX, INT_MIN
-#include <errno.h> // errno, ERANGE, EINVAL
 
 #define RADIX 10
 #define NEGATIVE_SIGN '-'
@@ -73,10 +72,7 @@ int	parse_number(const char *number, int *result)
 	while (char_is_valid_digit(number[i]))
 	{
 		if (!can_shift_and_add_in_int(*result, sign * parse_digit(number[i]), RADIX))
-		{
-			errno = ERANGE;
 			return (sign);
-		}
 		*result *= RADIX;
 		*result += sign * parse_digit(number[i]);
 		i++;

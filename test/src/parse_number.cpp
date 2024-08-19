@@ -94,7 +94,6 @@ TEST(WordIsValidNumberTest, ValidNumberOutOfRange) {
 																		\
 		return_value = parse_number((ascii_number), &numeric_result);	\
 		ASSERT_EQ(return_value, expected_return);						\
-		ASSERT_EQ(errno, ERANGE);										\
 	} while (0)
 
 TEST(ParseNumberTest, ValidPositiveNumber) {

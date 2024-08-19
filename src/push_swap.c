@@ -6,14 +6,13 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:10:15 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/09 17:58:27 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/19 22:01:02 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <errno.h>
 #include "deque.h"
 #include "input.h"
 #include "problem.h"
