@@ -6,11 +6,12 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 14:11:55 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/13 18:16:29 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/19 16:07:46 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "deque.h"
+#include "deque_order.h"
 #include <assert.h> // forbidden function!
 
 static void	deque_swap_elements(t_deque *self, size_t i, size_t j)
