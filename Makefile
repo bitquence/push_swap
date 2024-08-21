@@ -58,6 +58,11 @@ run_tests: $(OBJS)
 	cmake --build ./build/test
 	exec $(VALGRIND) ./build/test/test_runner
 
+.PHONY: update_lsp
+update_lsp: fclean
+	mkdir -p $(BUILD_DIR)
+	bear --output $(BUILD_DIR)/compile_commands.json -- make
+
 .PHONY: clean fclean re
 clean:
 	rm -rf $(BUILD_DIR)
