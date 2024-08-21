@@ -14,6 +14,7 @@
 #include "deque_order.h"
 
 size_t	longest_continuously_increasing_subsequence_len(const t_deque *stack);
+void	exhaust_stack_b_into_stack_a(t_state state);
 
 void	sort_and_output_solution_for_three_or_less(t_state state)
 {
@@ -45,12 +46,6 @@ void	push_and_sort_biggest_intergers_out(t_state state)
 	if (deque_len(state.stack_b) > 1 && \
 		*deque_get(state.stack_b, 0) < *deque_get(state.stack_b, 1))
 		apply_operation(state, OP_SWAP_B);
-}
-
-void	exhaust_stack_b_into_stack_a(t_state state)
-{
-	while ((int)deque_len(state.stack_b) > 0)
-		apply_operation(state, OP_PUSH_A);
 }
 
 void	sort_and_output_solution_for_small_array(t_state state)
