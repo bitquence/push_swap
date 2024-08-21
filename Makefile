@@ -35,6 +35,7 @@ SRCS := $(addprefix $(SOURCE_DIR)/,$(SRCS))
 OBJS := $(addprefix $(BUILD_DIR)/,$(OBJS))
 DEPS := $(addprefix $(BUILD_DIR)/,$(DEPS))
 
+.PHONY: all
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
@@ -51,6 +52,7 @@ ifneq (, $(shell which valgrind))
 endif
 
 # ty vincent! https://github.com/vincent-lafouasse/C-sandbox-gtest
+.PHONY: run_tests
 run_tests: $(OBJS)
 	cmake -DCMAKE_BUILD_TYPE=DEBUG -B ./build/test -S ./test
 	cmake --build ./build/test
