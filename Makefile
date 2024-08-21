@@ -1,4 +1,4 @@
-TARGET = push_swap
+NAME = push_swap
 
 BUILD_DIR := ./build
 SOURCE_DIR := ./src
@@ -36,9 +36,9 @@ OBJS := $(addprefix $(BUILD_DIR)/,$(OBJS))
 DEPS := $(addprefix $(BUILD_DIR)/,$(DEPS))
 
 .PHONY: all
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
+$(NAME): $(OBJS)
 	@mkdir -p $(dir $@)
 	$(CC) $(LDFLAGS) $(OUTPUT_OPTION) $^ $(LDLIBS)
 
@@ -68,7 +68,7 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 fclean: clean
-	rm -rf $(TARGET)
+	rm -rf $(NAME)
 
 re: fclean all
 
