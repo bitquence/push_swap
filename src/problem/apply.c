@@ -10,20 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "input.h"
 #include "operations.h"
 #include "problem.h"
 #include <stddef.h>
 #include <unistd.h>
-
-static size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 static void	register_operation(t_state state, t_operation operation)
 {
@@ -31,7 +22,7 @@ static void	register_operation(t_state state, t_operation operation)
 	const char	*mnemonic;
 
 	mnemonic = operation_code_of(operation);
-	write(STDOUT_FILENO, mnemonic, ft_strlen(mnemonic));
+	write(STDOUT_FILENO, mnemonic, string_length(mnemonic));
 	write(STDOUT_FILENO, "\n", 1);
 }
 
