@@ -22,6 +22,7 @@ add_library(pushswap STATIC
   ${LIBRARY_DIR}/build/deque/ranked.o
   ${LIBRARY_DIR}/build/deque/cmp.o
 
+  ${LIBRARY_DIR}/build/input/string_length.o
   ${LIBRARY_DIR}/build/input/parse_number.o
 
   ${LIBRARY_DIR}/build/operations.o
