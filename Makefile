@@ -23,7 +23,8 @@ SRCS += deque/constructor.c deque/destructor.c \
 	deque/properties.c deque/unique.c \
 	deque/sort_unstable.c deque/ranked.c \
 	deque/cmp.c
-SRCS += input/parse_number.c input/string_length.c
+SRCS += input/parse_number.c input/string_length.c \
+	input/parse_many_numbers.c input/split_in_place.c
 SRCS += operations.c
 SRCS += problem/apply.c problem/opcode.c
 SRCS += problem/sort/sort.c problem/sort/small_array.c \

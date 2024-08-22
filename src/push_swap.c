@@ -26,30 +26,6 @@ static void	push_swap_die(void)
 	exit(EXIT_FAILURE);
 }
 
-t_deque	*parse_numbers_from_string_array(char *words[], size_t count)
-{
-	t_deque	*numbers;
-	size_t	i;
-	int		number;
-
-	i = 0;
-	numbers = deque_new(count);
-	if (numbers == NULL)
-		return (NULL);
-	while (i < count)
-	{
-		if (!word_is_valid_number(words[i]) || \
-			parse_number(words[i], &number) != 0)
-		{
-			deque_destroy(numbers);
-			return (NULL);
-		}
-		deque_push_back(numbers, number);
-		i++;
-	}
-	return (numbers);
-}
-
 __attribute__((noreturn))
 static void	push_swap_cleanup_and_die(t_deque *a, t_deque *b)
 {
@@ -64,7 +40,10 @@ t_state	init_state_from_arguments_or_die(int argc, char *argv[])
 	t_deque	*sorted_stack_a;
 	t_deque	*stack_b;
 
-	stack_a = parse_numbers_from_string_array(&argv[1], argc - 1);
+	if (argc == 2)
+		stack_a = parse_numbers_from_whitespace_seperated_string(argv[1]);
+	else
+		stack_a = parse_numbers_from_string_array(&argv[1], argc - 1);
 	if (stack_a == NULL)
 		push_swap_die();
 	sorted_stack_a = deque_sorted_unstable(stack_a);

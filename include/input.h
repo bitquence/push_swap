@@ -15,9 +15,14 @@
 
 # include <stddef.h> // size_t
 # include <stdbool.h> // bool
+# include "deque.h"
 
+char	**split_in_place(char *str, const char *charset);
 size_t	string_length(const char *str);
 int		parse_number(const char *number, int *result);
 bool	word_is_valid_number(const char *word);
+
+t_deque	*parse_numbers_from_string_array(char *words[], size_t count);
+t_deque	*parse_numbers_from_whitespace_seperated_string(char *words);
 
 #endif // INPUT_H
