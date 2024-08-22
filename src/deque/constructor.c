@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:26:55 by jamar             #+#    #+#             */
-/*   Updated: 2024/03/25 17:35:19 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/22 14:17:17 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_deque	*deque_clone(const t_deque *self)
 	size_t	i;
 
 	new = deque_new(self->cap);
+	if (!new)
+		return (NULL);
 	i = 0;
 	while (i < deque_len(self))
 	{

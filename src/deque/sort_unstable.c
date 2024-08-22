@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 14:11:55 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/22 13:12:38 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/22 14:18:05 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ t_deque	*deque_sorted_unstable(const t_deque *self)
 	t_deque	*clone;
 
 	clone = deque_clone(self);
+	if (!clone)
+		return (NULL);
 	deque_sort_unstable(clone);
 	return (clone);
 }
