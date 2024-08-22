@@ -16,8 +16,8 @@
 size_t	max(size_t a, size_t b)
 {
 	if (a > b)
-		return a;
-	return b;
+		return (a);
+	return (b);
 }
 
 size_t	longest_continuously_increasing_subsequence_len(const t_deque *stack)

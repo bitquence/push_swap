@@ -38,7 +38,8 @@ bool				deque_is_empty(const t_deque *self);
 bool				deque_is_full(const t_deque *self);
 bool				deque_all_elements_are_unique(const t_deque *deque);
 bool				deque_all_elements_are_unique_sorted(const t_deque *deque);
-bool				deque_is_sorted(const t_deque *self, t_compare_function cmp);
+bool				deque_is_sorted(const t_deque *self,
+							t_compare_function cmp);
 bool				deque_all(const t_deque *self, t_predicate pred);
 
 const t_deque_data	*deque_get(const t_deque *self, size_t index);
@@ -69,7 +70,8 @@ void				deque_make_contiguous(t_deque *self);
 void				deque_sort_unstable(t_deque *self);
 t_deque				*deque_sorted_unstable(const t_deque *self);
 
-void				deque_make_ranked(t_deque *self, const t_deque *self_sorted);
+void				deque_make_ranked(t_deque *self,
+							const t_deque *self_sorted);
 
 t_deque				*deque_clone(const t_deque *self);
 void				deque_destroy(t_deque *self);

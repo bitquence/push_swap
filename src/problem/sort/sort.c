@@ -15,7 +15,7 @@
 
 void	sort_and_output_solution_for_small_array(t_state state);
 
-int radix_sort_number_is_candidate(t_deque_data number, unsigned int bit_index)
+int	radix_sort_number_is_candidate(t_deque_data number, unsigned int bit_index)
 {
 	return (((number >> bit_index) & 1) == 0);
 }
@@ -47,7 +47,7 @@ void	exhaust_stack_b_into_stack_a(t_state state)
 
 void	radix_sort_and_output_solution(t_state state)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (!deque_is_sorted(state.stack_a, ascending_order))
@@ -63,6 +63,6 @@ void	sort_and_output_solution(t_state state)
 	if (deque_is_sorted(state.stack_a, ascending_order))
 		return ;
 	if (deque_len(state.stack_a) <= 5)
-		return sort_and_output_solution_for_small_array(state);
+		return (sort_and_output_solution_for_small_array(state));
 	radix_sort_and_output_solution(state);
 }

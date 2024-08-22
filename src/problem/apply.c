@@ -18,9 +18,9 @@
 
 static void	register_operation(t_state state, t_operation operation)
 {
-	(void)state;
 	const char	*mnemonic;
 
+	(void)state;
 	mnemonic = operation_code_of(operation);
 	write(STDOUT_FILENO, mnemonic, string_length(mnemonic));
 	write(STDOUT_FILENO, "\n", 1);

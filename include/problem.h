@@ -29,7 +29,7 @@ typedef enum e_operation {
 	OP_REVERSE_ROTATE_BOTH,
 }	t_operation;
 
-const char *operation_code_of(t_operation operation);
+const char	*operation_code_of(t_operation operation);
 
 typedef struct s_state {
 	t_deque	*stack_a;
@@ -42,7 +42,7 @@ static inline void	destroy_state(t_state state)
 	deque_destroy(state.stack_b);
 }
 
-void	apply_operation(t_state state, t_operation operation);
-void	sort_and_output_solution(t_state state);
+void		apply_operation(t_state state, t_operation operation);
+void		sort_and_output_solution(t_state state);
 
 #endif // PROBLEM_H

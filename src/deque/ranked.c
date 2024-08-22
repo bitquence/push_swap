@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "deque.h"
+#include <assert.h>
 
 static size_t	index_of(const t_deque *self_sorted, t_deque_data element)
 {
@@ -33,17 +34,12 @@ static size_t	index_of(const t_deque *self_sorted, t_deque_data element)
 	return (0);
 }
 
-#include <assert.h>
-
 void	deque_make_ranked(t_deque *self, const t_deque *self_sorted)
 {
-	// is this needed?
-	// assert (deque_is_unique(self_sorted));
-	assert (deque_len(self) == deque_len(self_sorted));
-
 	size_t			i;
 	t_deque_data	*target_element;
 
+	assert (deque_len(self) == deque_len(self_sorted));
 	i = 0;
 	while (i < deque_len(self))
 	{

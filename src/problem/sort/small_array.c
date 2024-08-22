@@ -18,7 +18,7 @@ void	exhaust_stack_b_into_stack_a(t_state state);
 
 void	sort_and_output_solution_for_three_or_less(t_state state)
 {
-	t_deque *stack_a;
+	t_deque	*stack_a;
 
 	stack_a = state.stack_a;
 	if (longest_continuously_increasing_subsequence_len(stack_a) == 1)

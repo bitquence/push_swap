@@ -20,7 +20,7 @@ void	op_swap(t_deque *deque)
 	t_deque_data	second;
 
 	if (deque_len(deque) <= 1)
-		return;
+		return ;
 	first = deque_pop_front(deque);
 	second = deque_pop_front(deque);
 	deque_push_front(deque, first);
@@ -32,7 +32,7 @@ void	op_push(t_deque *from, t_deque *into)
 	t_deque_data	from_first;
 
 	if (deque_len(from) == 0)
-		return;
+		return ;
 	assert (!deque_is_full(into)); // forbidden function!
 	from_first = deque_pop_front(from);
 	deque_push_front(into, from_first);

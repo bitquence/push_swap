@@ -46,14 +46,13 @@ static size_t	deque_partition(t_deque *self, size_t start, size_t end)
 	return (j);
 }
 
-static void deque_quick_sort(t_deque *self, size_t start, size_t end)
+static void	deque_quick_sort(t_deque *self, size_t start, size_t end)
 {
 	size_t	pivot_index;
 
 	if (start < end)
 	{
 		pivot_index = deque_partition(self, start, end);
-
 		deque_quick_sort(self, start, pivot_index);
 		deque_quick_sort(self, pivot_index + 1, end);
 	}
