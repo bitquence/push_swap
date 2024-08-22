@@ -24,7 +24,7 @@ static inline bool	char_is_valid_digit(char ch)
 	return (ch >= '0' && ch <= '9');
 }
 
-static inline bool	can_shift_and_add_in_int(int num, int addend, int radix)
+static inline bool	will_underflow(int num, int addend, int radix)
 {
 	int64_t	result;
 
@@ -71,7 +71,7 @@ int	parse_number(const char *number, int *result)
 	}
 	while (char_is_valid_digit(number[i]))
 	{
-		if (!can_shift_and_add_in_int(*result, sign * parse_digit(number[i]), RADIX))
+		if (!will_underflow(*result, sign * parse_digit(number[i]), RADIX))
 			return (sign);
 		*result *= RADIX;
 		*result += sign * parse_digit(number[i]);
