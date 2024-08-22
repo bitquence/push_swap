@@ -110,8 +110,8 @@ TEST_F(DequeTest, DequeIsNotFull) {
   EXPECT_FALSE(deque_is_full(alphabet));
 }
 
-t_compare_function always_false = [](int a, int b) {
-  return int(false);
+t_compare_function always_bigger_than = [](int a, int b) {
+  return 1;
 };
 
 TEST_F(DequeTest, NonContiguousDequeIsSorted) {
@@ -131,14 +131,14 @@ TEST_F(DequeTest, UnsortedDequeIsNotSorted) {
 
 TEST_F(DequeTest, EmptyDequeIsAlwaysSorted) {
   EXPECT_TRUE(deque_is_sorted(empty, ascending_order));
-  EXPECT_TRUE(deque_is_sorted(empty, always_false));
+  EXPECT_TRUE(deque_is_sorted(empty, always_bigger_than));
 
   EXPECT_TRUE(deque_is_sorted(no_capacity, ascending_order));
-  EXPECT_TRUE(deque_is_sorted(no_capacity, always_false));
+  EXPECT_TRUE(deque_is_sorted(no_capacity, always_bigger_than));
 }
 
 TEST_F(DequeTest, DequeIsUnsortedAccordingToFalseFunction) {
-  EXPECT_FALSE(deque_is_sorted(alphabet, always_false));
+  EXPECT_FALSE(deque_is_sorted(alphabet, always_bigger_than));
 }
 
 TEST_F(DequeTest, CanGetElements) {

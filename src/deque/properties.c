@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 21:41:22 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/09 17:02:27 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/22 14:06:26 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ bool	deque_is_sorted(const t_deque *self, t_compare_function cmp)
 	{
 		first = *deque_get(self, i);
 		second = *deque_get(self, i + 1);
-		if (cmp(first, second) <= 0)
+		if (cmp(first, second) > 0)
 			return (false);
 		i++;
 	}
