@@ -6,7 +6,7 @@
 /*   By: jamar <jamar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 14:11:55 by jamar             #+#    #+#             */
-/*   Updated: 2024/08/19 16:07:46 by jamar            ###   ########.fr       */
+/*   Updated: 2024/08/22 13:12:38 by jamar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 
 static void	deque_swap_elements(t_deque *self, size_t i, size_t j)
 {
-	t_deque_data	temp;
+	t_deque_data	ith_value;
+	t_deque_data	jth_value;
 
-	temp = *deque_get(self, i);
-	*deque_get_mut(self, i) = *deque_get(self, j);
-	*deque_get_mut(self, j) = temp;
+	ith_value = *deque_get(self, i);
+	jth_value = *deque_get(self, j);
+	*deque_get_mut(self, i) = jth_value;
+	*deque_get_mut(self, j) = ith_value;
 }
 
 // Partitions the deque from [start,end) (left inclusive, right exclusive)
