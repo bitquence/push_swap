@@ -29,22 +29,22 @@ TEST(WordIsValidNumberTest, ValidNumberWithManySignsIsInvalidNumber) {
 	ASSERT_FALSE(word_is_valid_number("--42"));
 }
 
-TEST(WordIsValidNumberTest, ValidNumberWithLeadingZeroesIsInvalidNumber) {
-	ASSERT_FALSE(word_is_valid_number("00042"));
-	ASSERT_FALSE(word_is_valid_number("0042"));
-	ASSERT_FALSE(word_is_valid_number("042"));
-	ASSERT_FALSE(word_is_valid_number("+042"));
-	ASSERT_FALSE(word_is_valid_number("-042"));
-}
-
-TEST(WordIsValidNumberTest, ValidNumberBeginningWithSpacesIsInvalidNumber) {
-	ASSERT_FALSE(word_is_valid_number(" 42"));
-	ASSERT_FALSE(word_is_valid_number("    -42"));
-}
-
 TEST(WordIsValidNumberTest, ValidUnterminatedNumberIsInvalidNumber) {
 	ASSERT_FALSE(word_is_valid_number("+4242v"));
 	ASSERT_FALSE(word_is_valid_number("-4242v"));
+}
+
+TEST(WordIsValidNumberTest, ValidNumberBeginningWithSpacesIsValidNumber) {
+	ASSERT_TRUE(word_is_valid_number(" 42"));
+	ASSERT_TRUE(word_is_valid_number("    -42"));
+}
+
+TEST(WordIsValidNumberTest, ValidNumberWithLeadingZeroesIsValidNumber) {
+	ASSERT_TRUE(word_is_valid_number("00042"));
+	ASSERT_TRUE(word_is_valid_number("0042"));
+	ASSERT_TRUE(word_is_valid_number("042"));
+	ASSERT_TRUE(word_is_valid_number("+042"));
+	ASSERT_TRUE(word_is_valid_number("-042"));
 }
 
 TEST(WordIsValidNumberTest, ValidNumberInRange) {
