@@ -84,9 +84,11 @@ int	main(int argc, char *argv[])
 {
 	t_state	state;
 
-	if (argc <= 1)
-		return (0);
-	state = init_state_from_arguments_or_die(argc, argv);
-	sort_and_output_solution(state);
-	destroy_state(state);
+	if (argc > 1)
+	{
+		state = init_state_from_arguments_or_die(argc, argv);
+		sort_and_output_solution(state);
+		destroy_state(state);
+	}
+	return (EXIT_SUCCESS);
 }
